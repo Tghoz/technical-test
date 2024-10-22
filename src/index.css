@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,body {
+    height: 100%;
+    width: 100;
+    margin: 0;
+} 
+
+body {
+     background: #FAF6EF; 
+}
+
+@font-face {
+    font-family: 'pixel';
+    src: url('./assets/font/pixel.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
