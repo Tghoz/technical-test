@@ -18,19 +18,19 @@ export default function Page() {
   const [error, setError] = useState(null);
 
   const handleTextSelect = async (text) => {
-    setSelectedText(text); // Establece el comentario seleccionado
-    setLoading(true); // Activa el estado de carga
+    setSelectedText(text);
+    setLoading(true);
 
     try {
-      const result = await fetchSentiment(text.text); // Llama a la API utilizando el texto
-      console.log("Resultado del sentimiento:", result); // Muestra el resultado en la consola
-      setSentimentResult(result); // Establece el resultado del sentimiento
-      setError(null); // Restablece el estado de error
+      const result = await fetchSentiment(text.text);
+      console.log("Resultado del sentimiento:", result);
+      setSentimentResult(result);
+      setError(null);
     } catch (error) {
       console.error("Error al obtener el sentimiento:", error);
-      setError("Error al obtener el sentimiento."); // Establece un mensaje de error
+      setError("Error al obtener el sentimiento.");
     } finally {
-      setLoading(false); // Desactiva el estado de carga
+      setLoading(false);
     }
   };
 
@@ -47,33 +47,45 @@ export default function Page() {
               <h1 className="font-mono text-xl">Metrica Data</h1>
             </div>
             <div className="flex h-full w-full p-5">
-              <DoughnutChart
-                likes={parseInt(selectedComment.likes)}
-                comments={parseInt(selectedComment.comments)}
-                shares={parseInt(selectedComment.shares)}
-                reactions_count={parseInt(selectedComment.reactions_count)}
-              />
+              {loading ? (
+                <div className="flex justify-center items-center w-full h-full">
+                  <Spinner label="Loading..." color="warning" />
+                </div>
+              ) : selectedComment ? (
+                <DoughnutChart
+                  likes={parseInt(selectedComment.likes)}
+                  comments={parseInt(selectedComment.comments)}
+                  shares={parseInt(selectedComment.shares)}
+                  reactions_count={parseInt(selectedComment.reactions_count)}
+                />
+              ) : (
+                <div className="flex justify-center items-center w-full h-full text-gray-500">
+                  <p>No ha cargado ningún comentario.</p>
+                </div>
+              )}
             </div>
           </div>
 
           <div className="flex bg-[#FDEDD4] p-5 w-full justify-center rounded-lg">
-            {loading ? ( // Muestra un spinner o mensaje de carga mientras se obtiene el resultado
+            {loading ? (
               <div className="flex justify-center items-center">
                 <Spinner label="Loading..." color="warning" />
               </div>
-            ) : (
-              sentimentResult &&
+            ) : sentimentResult &&
               Array.isArray(sentimentResult) &&
-              sentimentResult.length > 0 && (
-                <BarChart
-                  score1={sentimentResult[0][0].score}
-                  score2={sentimentResult[0][1].score}
-                  score3={sentimentResult[0][2].score}
-                  label1={sentimentResult[0][0].label}
-                  label2={sentimentResult[0][1].label}
-                  label3={sentimentResult[0][2].label}
-                />
-              )
+              sentimentResult.length > 0 ? (
+              <BarChart
+                score1={sentimentResult[0][0].score}
+                score2={sentimentResult[0][1].score}
+                score3={sentimentResult[0][2].score}
+                label1={sentimentResult[0][0].label}
+                label2={sentimentResult[0][1].label}
+                label3={sentimentResult[0][2].label}
+              />
+            ) : (
+              <div className="text-center text-gray-500">
+                No ha cargado ningún comentario.
+              </div>
             )}
           </div>
         </div>

@@ -40,7 +40,7 @@ export default function BarChart({
     scales: {
       x: {
         min: 0,
-        max: 2,
+        max: 1,
         title: {
           display: true,
           text: "Valor",

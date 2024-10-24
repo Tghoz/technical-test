@@ -33,7 +33,15 @@ export default function FileModal() {
                 <FileInput />
               </ModalBody>
               <ModalFooter>
-                <Button color="primary" onPress={onClose}>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+                <Button
+                  color="secondary"
+                  onPress={() => {
+                    onClose(); // Llama a la función onClose (si es necesario)
+                    window.location.reload(); // Refresca la página
+                  }}>
                   Action
                 </Button>
               </ModalFooter>
