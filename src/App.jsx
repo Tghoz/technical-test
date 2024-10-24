@@ -7,7 +7,6 @@ function App() {
       <header>
         <Header />
       </header>
-
       <section className="mt-10 md:mx-12">
         <Page />
       </section>

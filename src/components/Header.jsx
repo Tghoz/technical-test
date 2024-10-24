@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AnimatedUser from "./AnimatedUser";
+import FileModal from "./modal/FileModal";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ export default function Header() {
           className={`col-span-1 ${isMenuOpen ? "block" : "hidden md:block"}`}>
           <div className="grid   justify-center   md:grid-cols-3 gap-4">
             <div className="bg-slate-300 rounded-full w-28 hover:w-40 hover:rounded-tl-lg transition-all">
-              <p className="text-center m-2 font-pixel">Data</p>
+              <FileModal />
             </div>
             <div className="bg-slate-300 rounded-bl-lg w-28 hover:w-40 hover:rounded-bl-none transition-all">
               <p className="text-center mt-2 font-pixel">Info</p>
