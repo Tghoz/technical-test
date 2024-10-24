@@ -22,9 +22,9 @@ export default function BarChart({
   score1 = 0,
   score2 = 0,
   score3 = 0,
-  label1,
-  label2,
-  label3,
+  label1 = "Valor 1",
+  label2 = "Valor 2",
+  label3 = "Valor 3",
 }) {
   const labels = [label1, label2, label3];
   const num = [score1, score2, score3];

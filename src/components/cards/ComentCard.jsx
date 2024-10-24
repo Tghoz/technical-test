@@ -62,7 +62,9 @@ export default function ComentCards({ onTextSelect }) {
         ) : paginatedComments.length > 0 ? (
           paginatedComments.map((comment, index) => (
             <div key={index} onClick={() => handleCardClick(comment)}>
-              <Card className="my-2 bg-[#FFD8F5]" style={{ cursor: "pointer" }}>
+              <Card
+                className="my-2 bg-[#FFD8F5] hover:bg-[#e38dcd] hover:scale-95 transition-all duration-200 "
+                style={{ cursor: "pointer" }}>
                 <CardBody>
                   <p>{comment.text}</p>
                 </CardBody>
