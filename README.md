@@ -1,6 +1,6 @@
 # Technical Test
 
-Prueba técnica de desarrollo de un frontend con interacción de gráficas y consultas a una API
+Prueba técnica de desarrollo de un frontend con interacción de gráficas y consultas a una API para Genios Studios
 
 ## Tecnologías Utilizadas
 
@@ -42,11 +42,9 @@ Cada texto se podrá ver en una lista para seleccionar, visualizando la cantidad
 
 ![1729813434110](image/README/1729813434110.png)
 
-
 ## Nota
 
 No pude completar el inicio de sesión debido a limitaciones de tiempo.
-
 
 ## 🔗 Links
 
